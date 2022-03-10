@@ -1,0 +1,245 @@
+@charset "UTF-8";
+/* fonte Bebas Neue (google fontes) */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* fonte Idroid ( que baixamos)*/
+@font-face {
+    font-family: 'Android';
+    src: url('/fontes/idroid.otf') format('opentype');
+    font-weight: normal;
+}
+/* 
+    Cores escolhidas para a nossa palheta:
+    0- #c5ebd6
+    1- #83e1ad
+    2- #3ddc84
+    3- #2fa866
+    4- #1a5c37
+    5- #063d1e
+*/
+
+/* É uma pseudo classe que todo documento tem, é a nossa raiz. 
+   tudo que for colocado aqui serve para todo o documento. */
+/* Vamos colcar algumas variáveis nela, toda variável começa com -- */
+:root {
+    --cor0: #c5ebd6;
+    --cor1: #83e1ad;
+    --cor2: #3ddc84;
+    --cor3: #2fa866;
+    --cor4: #1a5c37;
+    --cor5: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Android', cursive;
+}
+
+/* Seletor global que seleciona todos os elementos. */
+/* Tiramos as margens e paddings de todos os elementos (para 
+   não ficar um espaço grade entre os elementos). */
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-size: var(--fonte-padrao);
+}
+
+a.externo::after {
+    content: '\00a0\1F517';  
+}
+
+header {
+    /* Degradê */
+    background-image: linear-gradient(to bottom, var(--cor3), var(--cor5));
+    /* Altura mínima. */
+    min-height: 150px;
+    /* Centralizar o texto. */
+    text-align: center;
+    /* Descolar o texto de cima. */
+    padding-top: 40px;
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque); 
+    font-size: 3em;
+    /* Espaço abaixo do h1 */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.281);
+    font-weight: normal;
+}
+
+header p {
+    font-family: var(--fonte-padrao);
+    font-size: 1.2em;
+    /* Margin auto e max-width para centralizar. */
+    max-width: 500;
+    margin: auto;
+    color: white;
+    /* Descolar das laterais */
+    padding-right: 10px;
+    padding-left: 10px;
+    /* Sombra do texto. */
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.281);
+}
+
+nav {
+    background-color:var(--cor5) ;
+    padding: 10px;
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.294);
+}
+
+nav > a {
+    color:var(--cor1);
+    padding: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav > a:hover {
+    background-color: var(--cor2);
+    color: var(--cor4);
+}
+
+main{
+    /* Organiza o texto quando muda o tamanho da tela. Tamanho 
+       máximo e mínimo que vai ocupar. */
+    min-width: 300px;
+    max-width: 1000px;
+    /* Deixa tudo no centro quando modifica o tamanho da tela. */
+    margin: auto;
+    /* Para separar do rodapé. */
+    margin-bottom: 30px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.493) ;
+    /* Arredondamento só das borda de baixo. */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+main h1 {
+    color: var(--cor5);
+    font-family: var(--fonte-android);
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    /* Gradiente da cor 1 ate ficar transparente. */
+    background-image: linear-gradient(to right, var(--cor1), transparent);
+    text-indent: 8px;
+    font-weight: normal;
+}
+
+/* Se não colocar o > significa que o p está dentro do mains
+   em qualquer nível. */
+main p {
+margin: 15px 0px 15px 0px;
+text-align: justify;
+/* Parágrafo no início. */
+text-indent: 30px;
+font-size: 1em;
+/* Espaçamento entre linhas. */
+line-height: 1.5em;
+}
+
+main strong {
+    color: var(--cor4);
+    font-weight: bold;
+    padding: 2px 6px;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--cor5);
+    padding: 2px 6px;
+
+}
+
+main a:hover {
+    color: var(--cor2);
+    text-decoration: underline;
+}
+
+main img {
+    width: 100%;
+}
+
+main img.pequena {
+    max-width: 350px;
+    /* Para poder centralizar a imagem, pois a imagem por 
+       padrão não é um bloco. */
+    display: block;
+    margin: auto;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin-bottom: 30px;
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 57%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor1);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.274);
+}
+
+aside > ul {
+    /* Coloca um sinal de check na lista. */
+    /* \2714 é o código do check e 00a0 dá uma espaço sem 
+       quebra de linha. */
+    list-style-type: '\2714\00a0\00a0';
+    /* Coloca a bolinha para dentro. */
+    list-style-position: inside;
+    columns: 2;
+}
+
+aside > h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px;
+    /* Cresce para fora. */
+    margin: -10px -10px 0px -10px;
+    /* Para não perder as bordas. */
+    border-radius: 10px 10px 0px 0px;
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8;
+    padding: 5px;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor1);
+}
